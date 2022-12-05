@@ -48,14 +48,14 @@ const Login = () => {
           const userData = await login(values).unwrap();
           dispatch(
             setCredentials({
-              accessToken: userData.access,
-              refreshToken: userData.refresh,
-              user: values.username,
+              accessToken: userData.access_token,
+              refreshToken: userData.refresh_token,
+              user: userData.user.username,
             })
           );
-          localStorage.setItem("user", values.username);
-          localStorage.setItem("accessToken", userData.access);
-          localStorage.setItem("refreshToken", userData.access);
+          localStorage.setItem("user", userData.user.username);
+          localStorage.setItem("accessToken", userData.access_token);
+          localStorage.setItem("refreshToken", userData.refresh_token);
           navigate("/profile");
         } catch (err) {
           setErrMsg(err.data?.detail);

@@ -3,19 +3,31 @@ import { selectCurrentUser } from "../features/auth/authSlice";
 import { Link } from "react-router-dom";
 import { logOut } from "../features/auth/authSlice";
 import { useDispatch } from "react-redux";
+import { useGetPostsQuery } from "../features/posts/postsApiSlice";
 
 const Profile = () => {
   const user = useSelector(selectCurrentUser);
   const dispatch = useDispatch();
+  const { data, isFetching, error } = useGetPostsQuery();
+
+  console.log(data);
 
   return (
     <div>
       <h2>Profile</h2>
       <p>
         <strong>{user}'s</strong> profile page.
-        <Link to="/userslist">ASDSADSA</Link>
       </p>
       <button onClick={() => dispatch(logOut())}>Logout</button>
+      <ul>
+        {data?.results?.map((post, idx) => (
+          <li key={post.id}>
+            <div>
+              <p>{post.body}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

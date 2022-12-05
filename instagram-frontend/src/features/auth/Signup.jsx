@@ -29,7 +29,7 @@ const Signup = () => {
       "Username is required"
     ),
     password: Yup.string("Enter your password")
-      // .min(8, "Password should be of minimum 8 characters length")
+      .min(8, "Password should be of minimum 8 characters length")
       .required("Password is required"),
   });
 
