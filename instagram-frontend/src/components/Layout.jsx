@@ -1,9 +1,5 @@
 import { Outlet, Link } from "react-router-dom";
-// import Navbar from "../components/Navigation/Navbar";
-import Sidebar from "../components/Sidebar";
-// import Box from '@mui/material/Box';
-
-
+import Sidebar from "./Navigation/Sidebar";
 const Layout = () => {
   return (
     <>

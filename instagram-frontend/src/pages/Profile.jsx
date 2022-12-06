@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { logOut } from "../features/auth/authSlice";
 import { useDispatch } from "react-redux";
 import { useGetPostsQuery } from "../features/posts/postsApiSlice";
+import PostForm from "../features/posts/PostForm";
+import PostModal from "../features/posts/PostModal";
 
 const Profile = () => {
   const user = useSelector(selectCurrentUser);
@@ -28,6 +30,7 @@ const Profile = () => {
           </li>
         ))}
       </ul>
+      <PostModal />
     </div>
   );
 };
